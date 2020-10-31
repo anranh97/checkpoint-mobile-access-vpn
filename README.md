@@ -10,7 +10,7 @@ This is a step-by-step tutorial to setup your Linux machine with all the require
 
 In the past year I had to setup my Ubuntu 18.04 laptop twice. Both times were very exhausting and took long hours until it was ready to use due to so many different errors hard to find the solution on Google. So no need to mention this tutorial (at the current state) is only useful if you're working with a clean and recently installed Ubuntu LTS distro.
 
-## Dependencies
+## Dependencies (usually no need)
 
 First make sure your operating system is up-to-date with:
 
@@ -27,24 +27,10 @@ $ sudo apt-get install build-essential
 
 ### Java
 
-If your system has no Java version installed, make sure you install the version 8 (or higher). You can do that quickly with [SDKMAN!](https://sdkman.io/), but first be sure you're on your home directory with:
+If your system has no Java version installed, make sure you install the version 8 (or higher). You can do that quickly with:
 
-```bash
-$ cd ~
 ```
-
-And then for installing SDKMAN!:
-
-```bash
-$ curl -s "https://get.sdkman.io" | bash
-$ source "$HOME/.sdkman/bin/sdkman-init.sh"
-```
-
-List the available Java versions and try to find the OpenJDK version 8 or higher (in my case it was `8.0.232-open`) and then install it:
-
-```bash 
-$ sdk list java
-$ sdk install java 8.0.232-open
+$ sudo apt-get install openjdk-8-jre-headless
 ```
 
 ### SSL
@@ -75,24 +61,7 @@ There are two shell script files you'll need to download to setup Check Point Mo
 - `snx_install.sh`
 - `cshell_install.sh`
 
-Both of them you can get on your company's Mobile Access VPN page.
-
-### 1. Login
-
-<p align="center">
-    <img src="login.png"/>
-</p>
-
-
-### 2. Click on "Settings" button
-<p align="center">
-    <img src="main.png"/>
-</p>
-
-### 3. Click on "Download Installation for Linux" for both SSL Network Extender and Check Point Mobile Access Portal Agent
-<p align="center">
-    <img src="settings.png"/>
-</p>
+Both of them you can download from this repo, or on your company's Mobile Access VPN page (see first commit of this repo).
 
 ## Running the Shell Scripts
 
@@ -142,6 +111,8 @@ If you end up with an error when you're trying to run `/usr/bin/cshell/launcher`
 ```bash
 $ sudo rm /tmp/cshell.fifo
 ```
+
+If you use Firefox/Safari, you may need to navigate to [https://localhost:14186/id](https://localhost:14186/id) once before connecting to the VPN. For details, see [this post](https://support.lesley.edu/support/solutions/articles/4000124096-troubleshooting-network-extender-in-firefox).
 
 ## Post-install
 
